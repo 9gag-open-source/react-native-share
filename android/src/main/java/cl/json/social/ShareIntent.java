@@ -12,7 +12,9 @@ import com.facebook.react.bridge.ReadableMap;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+import cl.json.R;
 import cl.json.ShareFile;
+import cl.json.intent.RNShareIntentAction;
 
 /**
  * Created by disenodosbbcl on 23-07-16.
@@ -21,9 +23,10 @@ public abstract class ShareIntent {
 
     protected final ReactApplicationContext reactContext;
     protected Intent intent;
-    protected String chooserTitle = "Share";
+    protected String chooserTitle;
     public ShareIntent(ReactApplicationContext reactContext) {
         this.reactContext = reactContext;
+        this.chooserTitle = reactContext.getString(R.string.rn_share_title);
         this.setIntent(new Intent(android.content.Intent.ACTION_SEND));
         this.getIntent().setType("text/plain");
     }
@@ -74,10 +77,30 @@ public abstract class ShareIntent {
     protected void openIntentChooser() throws ActivityNotFoundException {
         System.out.println(this.getIntent());
         System.out.println(this.getIntent().getExtras());
-        Intent chooser = Intent.createChooser(this.getIntent(), this.chooserTitle);
+        Intent chooser = createChooserIntent(this.getIntent(), this.chooserTitle);
         chooser.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.reactContext.startActivity(chooser);
     }
+
+    /**
+     * Adding a custom download intent
+     * @param intent
+     * @param title
+     * @return
+     */
+    private Intent createChooserIntent(Intent intent, String title) {
+        Intent chooserIntent = Intent.createChooser(intent, title);
+
+        Intent downloadIntent = new Intent(RNShareIntentAction.ACTION_DOWNLOAD);
+        downloadIntent.setType("text/url");
+        downloadIntent.putExtra(Intent.EXTRA_TEXT, title);
+
+        Intent[] intentArray = { downloadIntent };
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray);
+
+        return chooserIntent;
+    }
+
     protected boolean isPackageInstalled(String packagename, Context context) {
         PackageManager pm = context.getPackageManager();
         try {
