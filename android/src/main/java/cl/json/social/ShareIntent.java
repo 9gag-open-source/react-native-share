@@ -14,7 +14,8 @@ import java.net.URLEncoder;
 
 import cl.json.R;
 import cl.json.ShareFile;
-import cl.json.intent.RNShareIntentAction;
+import cl.json.activity.RNShareWrapperActivity;
+import cl.json.intent.RNShareIntent;
 
 /**
  * Created by disenodosbbcl on 23-07-16.
@@ -77,9 +78,13 @@ public abstract class ShareIntent {
     protected void openIntentChooser() throws ActivityNotFoundException {
         System.out.println(this.getIntent());
         System.out.println(this.getIntent().getExtras());
-        Intent chooser = createChooserIntent(this.getIntent(), this.chooserTitle);
-        chooser.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        this.reactContext.startActivity(chooser);
+//        Intent chooser = createChooserIntent(this.getIntent(), this.chooserTitle);
+//        chooser.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        Intent wrapperIntent = new Intent(this.reactContext, RNShareWrapperActivity.class);
+        wrapperIntent.putExtra(Intent.EXTRA_INTENT, this.getIntent());
+
+        this.reactContext.startActivity(wrapperIntent);
     }
 
     /**
@@ -91,7 +96,7 @@ public abstract class ShareIntent {
     private Intent createChooserIntent(Intent intent, String title) {
         Intent chooserIntent = Intent.createChooser(intent, title);
 
-        Intent downloadIntent = new Intent(RNShareIntentAction.ACTION_DOWNLOAD);
+        Intent downloadIntent = new Intent(RNShareIntent.ACTION_DOWNLOAD);
         downloadIntent.setType("text/url");
         downloadIntent.putExtra(Intent.EXTRA_TEXT, title);
 

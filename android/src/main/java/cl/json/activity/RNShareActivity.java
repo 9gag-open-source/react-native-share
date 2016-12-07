@@ -18,7 +18,13 @@ public class RNShareActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "onCreate: " + getIntent());
-        Toast.makeText(this, "Downloading " + getIntent().getStringExtra(Intent.EXTRA_TEXT), Toast.LENGTH_SHORT).show();
+        Bundle b = getIntent().getExtras();
+        Log.d(TAG, "onCreate: " + getIntent().getExtras());
+        Toast.makeText(this, "Downloading " + getIntent().getStringExtra(Intent.EXTRA_TEXT) + " subj=" + getIntent().getStringExtra(Intent.EXTRA_SUBJECT), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(TAG, "onActivityResult: requestCode=" + requestCode + ", resultCode=" + resultCode + ", data=" + data);
     }
 }
