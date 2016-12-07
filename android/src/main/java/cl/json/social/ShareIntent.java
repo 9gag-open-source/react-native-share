@@ -15,7 +15,7 @@ import java.net.URLEncoder;
 import cl.json.R;
 import cl.json.ShareFile;
 import cl.json.activity.RNShareWrapperActivity;
-import cl.json.intent.RNShareIntent;
+
 
 /**
  * Created by disenodosbbcl on 23-07-16.
@@ -87,24 +87,24 @@ public abstract class ShareIntent {
         this.reactContext.startActivity(wrapperIntent);
     }
 
-    /**
-     * Adding a custom download intent
-     * @param intent
-     * @param title
-     * @return
-     */
-    private Intent createChooserIntent(Intent intent, String title) {
-        Intent chooserIntent = Intent.createChooser(intent, title);
-
-        Intent downloadIntent = new Intent(RNShareIntent.ACTION_DOWNLOAD);
-        downloadIntent.setType("text/url");
-        downloadIntent.putExtra(Intent.EXTRA_TEXT, title);
-
-        Intent[] intentArray = { downloadIntent };
-        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray);
-
-        return chooserIntent;
-    }
+//    /**
+//     * Adding a custom download intent
+//     * @param intent
+//     * @param title
+//     * @return
+//     */
+//    private Intent createChooserIntent(Intent intent, String title) {
+//        Intent chooserIntent = Intent.createChooser(intent, title);
+//
+//        Intent downloadIntent = new Intent(RNShareIntent.ACTION_DOWNLOAD);
+//        downloadIntent.setType("text/url");
+//        downloadIntent.putExtra(Intent.EXTRA_TEXT, title);
+//
+//        Intent[] intentArray = { downloadIntent };
+//        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray);
+//
+//        return chooserIntent;
+//    }
 
     protected boolean isPackageInstalled(String packagename, Context context) {
         PackageManager pm = context.getPackageManager();
