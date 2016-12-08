@@ -20,4 +20,6 @@ android {
 
 dependencies {
     compile 'com.facebook.react:react-native:+'
+    compile 'com.flipboard:bottomsheet-core:1.5.3'
+    compile 'com.flipboard:bottomsheet-commons:1.5.3'
 }

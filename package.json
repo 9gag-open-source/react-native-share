@@ -4,7 +4,7 @@
   "version": "1.0.17",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EstebanFuentealba/react-native-share.git"
+    "url": "git+https://github.com/9gag-open-source/react-native-share"
   },
   "keywords": [
     "react-component",
@@ -15,8 +15,8 @@
   ],
   "nativePackage": true,
   "author": {
-    "name": "Esteban Fuentealba",
-    "email": "efuentealba@json.cl"
+    "name": "9GAG Open Source",
+    "email": "support@9gag.com"
   },
   "license": "MIT",
   "readmeFilename": "README.md"

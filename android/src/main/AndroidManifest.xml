@@ -1,4 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="cl.json">
-
+    <application>
+        <activity android:name=".activity.RNShareActivity"/>
+        <activity android:name=".activity.RNShareWrapperActivity" android:theme="@style/Theme.Transparent"/>
+    </application>
 </manifest>
