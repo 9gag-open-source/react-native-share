@@ -34,8 +34,8 @@ class RNShare {
   static open(options) {
     return new Promise((resolve, reject) => {
       if (Platform.OS === "ios") {
-        ActionSheetIOS.showShareActionSheetWithOptions(options, (error) => {
-          return reject({ error: error });
+        NativeModules.RNShare.open(options,(e) => {
+          return reject({ error: e });
         }, (success, activityType) => {
           if(success) {
             return resolve({
