@@ -15,6 +15,7 @@
    Platform,
    NativeModules
  } from 'react-native';
+ import Share, {ShareSheet, Button} from 'react-native-share';
 
  class DemoProject extends Component {
    constructor(props) {
@@ -48,13 +49,7 @@
      return (
        <View style={styles.container}>
          <TouchableOpacity onPress={()=>{
-           NativeModules.RNShare.open(options,(e) => {
-             return reject({ error: e });
-           },(e) => {
-            //  resolve({
-            //    message: e
-            //  });
-           });
+           Share.open(options)
          }}>
            <View style={styles.instructions}>
              <Text>My Share</Text>
