@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B33C22851D441713006BCD98 /* GenericShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C22841D441713006BCD98 /* GenericShare.m */; };
-		B33C22891D4419E8006BCD98 /* WhatsAppShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C22881D4419E8006BCD98 /* WhatsAppShare.m */; };
-		B33C228B1D442577006BCD98 /* EmailShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C228A1D442576006BCD98 /* EmailShare.m */; };
 		B3E7B58A1CC2AC0600A0062D /* RNShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNShare.m */; };
-		B3EEE48E1D4844E7008422B6 /* GooglePlusShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE48D1D4844E7008422B6 /* GooglePlusShare.m */; };
+		BE8C440B1DF93745006F7D0D /* libRNShareResources.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE8C44051DF93727006F7D0D /* libRNShareResources.bundle */; };
+		BE8C44101DF9377B006F7D0D /* activity-copy.png in Resources */ = {isa = PBXBuildFile; fileRef = BE8C440C1DF9377B006F7D0D /* activity-copy.png */; };
+		BE8C44111DF9377B006F7D0D /* activity-copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE8C440D1DF9377B006F7D0D /* activity-copy@2x.png */; };
+		BE8C44121DF9377B006F7D0D /* activity-safari.png in Resources */ = {isa = PBXBuildFile; fileRef = BE8C440E1DF9377B006F7D0D /* activity-safari.png */; };
+		BE8C44131DF9377B006F7D0D /* activity-safari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE8C440F1DF9377B006F7D0D /* activity-safari@2x.png */; };
+		BEF10F0A1DF913F300C27317 /* NGCopyLinkActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF10F071DF913F300C27317 /* NGCopyLinkActivity.m */; };
+		BEF10F0B1DF913F300C27317 /* NGSafariActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF10F091DF913F300C27317 /* NGSafariActivity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -19,8 +22,9 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
+			dstSubfolderSpec = 7;
 			files = (
+				BE8C440B1DF93745006F7D0D /* libRNShareResources.bundle in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -28,20 +32,29 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNShare.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B33C22841D441713006BCD98 /* GenericShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericShare.m; sourceTree = "<group>"; };
-		B33C22861D441723006BCD98 /* GenericShare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GenericShare.h; sourceTree = "<group>"; };
-		B33C22871D4419DA006BCD98 /* WhatsAppShare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WhatsAppShare.h; sourceTree = "<group>"; };
-		B33C22881D4419E8006BCD98 /* WhatsAppShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhatsAppShare.m; sourceTree = "<group>"; };
-		B33C228A1D442576006BCD98 /* EmailShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailShare.m; sourceTree = "<group>"; };
-		B33C228C1D442583006BCD98 /* EmailShare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmailShare.h; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNShare.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNShare.m; sourceTree = "<group>"; };
-		B3EEE48D1D4844E7008422B6 /* GooglePlusShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GooglePlusShare.m; sourceTree = "<group>"; };
-		B3EEE48F1D4844F4008422B6 /* GooglePlusShare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GooglePlusShare.h; sourceTree = "<group>"; };
+		BE8C43FD1DF936F6006F7D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE8C44051DF93727006F7D0D /* libRNShareResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libRNShareResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE8C440C1DF9377B006F7D0D /* activity-copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "activity-copy.png"; sourceTree = "<group>"; };
+		BE8C440D1DF9377B006F7D0D /* activity-copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "activity-copy@2x.png"; sourceTree = "<group>"; };
+		BE8C440E1DF9377B006F7D0D /* activity-safari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "activity-safari.png"; sourceTree = "<group>"; };
+		BE8C440F1DF9377B006F7D0D /* activity-safari@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "activity-safari@2x.png"; sourceTree = "<group>"; };
+		BEF10F061DF913F300C27317 /* NGCopyLinkActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGCopyLinkActivity.h; sourceTree = "<group>"; };
+		BEF10F071DF913F300C27317 /* NGCopyLinkActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGCopyLinkActivity.m; sourceTree = "<group>"; };
+		BEF10F081DF913F300C27317 /* NGSafariActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGSafariActivity.h; sourceTree = "<group>"; };
+		BEF10F091DF913F300C27317 /* NGSafariActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGSafariActivity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		58B511D81A9E6C8500147676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE8C44021DF93727006F7D0D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -62,26 +75,36 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				B33C22801D43F9B0006BCD98 /* social */,
+				BEF10F051DF913F300C27317 /* Activity */,
 				B3E7B5881CC2AC0600A0062D /* RNShare.h */,
 				B3E7B5891CC2AC0600A0062D /* RNShare.m */,
+				BE8C43FC1DF936F6006F7D0D /* libRNShareResources */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				BE8C44051DF93727006F7D0D /* libRNShareResources.bundle */,
 			);
 			sourceTree = "<group>";
 		};
-		B33C22801D43F9B0006BCD98 /* social */ = {
+		BE8C43FC1DF936F6006F7D0D /* libRNShareResources */ = {
 			isa = PBXGroup;
 			children = (
-				B33C22841D441713006BCD98 /* GenericShare.m */,
-				B33C22861D441723006BCD98 /* GenericShare.h */,
-				B33C22871D4419DA006BCD98 /* WhatsAppShare.h */,
-				B33C22881D4419E8006BCD98 /* WhatsAppShare.m */,
-				B33C228A1D442576006BCD98 /* EmailShare.m */,
-				B33C228C1D442583006BCD98 /* EmailShare.h */,
-				B3EEE48D1D4844E7008422B6 /* GooglePlusShare.m */,
-				B3EEE48F1D4844F4008422B6 /* GooglePlusShare.h */,
+				BE8C440C1DF9377B006F7D0D /* activity-copy.png */,
+				BE8C440D1DF9377B006F7D0D /* activity-copy@2x.png */,
+				BE8C440E1DF9377B006F7D0D /* activity-safari.png */,
+				BE8C440F1DF9377B006F7D0D /* activity-safari@2x.png */,
+				BE8C43FD1DF936F6006F7D0D /* Info.plist */,
 			);
-			name = social;
+			path = libRNShareResources;
+			sourceTree = "<group>";
+		};
+		BEF10F051DF913F300C27317 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				BEF10F061DF913F300C27317 /* NGCopyLinkActivity.h */,
+				BEF10F071DF913F300C27317 /* NGCopyLinkActivity.m */,
+				BEF10F081DF913F300C27317 /* NGSafariActivity.h */,
+				BEF10F091DF913F300C27317 /* NGSafariActivity.m */,
+			);
+			path = Activity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +127,23 @@
 			productReference = 134814201AA4EA6300B7C361 /* libRNShare.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		BE8C44041DF93727006F7D0D /* libRNShareResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE8C44081DF93727006F7D0D /* Build configuration list for PBXNativeTarget "libRNShareResources" */;
+			buildPhases = (
+				BE8C44011DF93727006F7D0D /* Sources */,
+				BE8C44021DF93727006F7D0D /* Frameworks */,
+				BE8C44031DF93727006F7D0D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libRNShareResources;
+			productName = libRNShareResources;
+			productReference = BE8C44051DF93727006F7D0D /* libRNShareResources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -115,6 +155,11 @@
 				TargetAttributes = {
 					58B511DA1A9E6C8500147676 = {
 						CreatedOnToolsVersion = 6.1.1;
+					};
+					BE8C44041DF93727006F7D0D = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 3X53CJD4HG;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -131,20 +176,40 @@
 			projectRoot = "";
 			targets = (
 				58B511DA1A9E6C8500147676 /* RNShare */,
+				BE8C44041DF93727006F7D0D /* libRNShareResources */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE8C44031DF93727006F7D0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE8C44121DF9377B006F7D0D /* activity-safari.png in Resources */,
+				BE8C44111DF9377B006F7D0D /* activity-copy@2x.png in Resources */,
+				BE8C44101DF9377B006F7D0D /* activity-copy.png in Resources */,
+				BE8C44131DF9377B006F7D0D /* activity-safari@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3EEE48E1D4844E7008422B6 /* GooglePlusShare.m in Sources */,
+				BEF10F0B1DF913F300C27317 /* NGSafariActivity.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNShare.m in Sources */,
-				B33C22891D4419E8006BCD98 /* WhatsAppShare.m in Sources */,
-				B33C228B1D442577006BCD98 /* EmailShare.m in Sources */,
-				B33C22851D441713006BCD98 /* GenericShare.m in Sources */,
+				BEF10F0A1DF913F300C27317 /* NGCopyLinkActivity.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE8C44011DF93727006F7D0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -218,7 +283,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -233,6 +298,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../example/DemoProject/node_modules/react-native/React/**",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
@@ -249,11 +315,60 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../example/DemoProject/node_modules/react-native/React/**",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNShare;
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BE8C44091DF93727006F7D0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 3X53CJD4HG;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = libRNShareResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "-GAG.libRNShareResources";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		BE8C440A1DF93727006F7D0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 3X53CJD4HG;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = libRNShareResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "-GAG.libRNShareResources";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -274,6 +389,15 @@
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,
 				58B511F11A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE8C44081DF93727006F7D0D /* Build configuration list for PBXNativeTarget "libRNShareResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE8C44091DF93727006F7D0D /* Debug */,
+				BE8C440A1DF93727006F7D0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
