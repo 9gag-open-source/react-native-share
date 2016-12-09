@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
 
 class RNShare {
   static open(options) {
-    console.log("DIU")
     return new Promise((resolve, reject) => {
       if (Platform.OS === "ios") {
         NativeModules.RNShare.open(options,(e) => {
@@ -60,10 +59,10 @@ class RNShare {
   static shareSingle(options){
     if (Platform.OS === "ios" || Platform.OS === "android") {
       return new Promise((resolve, reject) => {
-        NativeModules.RNIntentAnrdoid.open(options,(e) => {
+        NativeModules.RNIntentAnrdoid.shareSingle(options,(e) => {
           return reject({ error: e });
         },(e) => {
-          resolve({
+          return resolve({
             message: e
           });
         });
