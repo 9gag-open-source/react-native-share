@@ -51,7 +51,7 @@ public abstract class SingleShareIntent extends ShareIntent {
                 } else{
                     //  TODO
                 }
-                //  open web intent
+                //  handleIntent web intent
                 this.setIntent(new Intent(new Intent("android.intent.action.VIEW", Uri.parse(url))));
             }
         } else {
