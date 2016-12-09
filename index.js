@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
 
 class RNShare {
   static open(options) {
+    console.log("DIU")
     return new Promise((resolve, reject) => {
       if (Platform.OS === "ios") {
         NativeModules.RNShare.open(options,(e) => {
@@ -59,10 +60,10 @@ class RNShare {
   static shareSingle(options){
     if (Platform.OS === "ios" || Platform.OS === "android") {
       return new Promise((resolve, reject) => {
-        NativeModules.RNShare.shareSingle(options,(e) => {
+        NativeModules.RNIntentAnrdoid.open(options,(e) => {
           return reject({ error: e });
         },(e) => {
-          return resolve({
+          resolve({
             message: e
           });
         });
@@ -72,6 +73,25 @@ class RNShare {
     }
   }
 }
+
+class RNIntentAnrdoid {
+  static handleIntent(options){
+    if (Platform.OS === 'android') {
+      return new Promise((resolve, reject) => {
+        console.log(NativeModules.RNIntentAndroid)
+        NativeModules.RNIntentAndroid.handleIntent(options, (e) => {
+          return reject({ error: e});
+        }, (e) => {
+          message: e
+        });
+      });
+    } else {
+      // Ignore
+    }
+
+  }
+}
+
 class ShareSheet extends React.Component {
   componentDidMount() {
     BackAndroid.addEventListener('hardwareBackPress',() => {
@@ -101,8 +121,8 @@ class ShareSheet extends React.Component {
   }
 }
 
-
 module.exports = RNShare;
+module.exports.IntentAndroid = RNIntentAnrdoid;
 module.exports.Overlay = Overlay;
 module.exports.Sheet = Sheet;
 module.exports.Button = Button;
