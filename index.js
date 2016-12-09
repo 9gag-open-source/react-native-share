@@ -59,7 +59,7 @@ class RNShare {
   static shareSingle(options){
     if (Platform.OS === "ios" || Platform.OS === "android") {
       return new Promise((resolve, reject) => {
-        NativeModules.RNIntentAnrdoid.shareSingle(options,(e) => {
+        NativeModules.RNShare.shareSingle(options,(e) => {
           return reject({ error: e });
         },(e) => {
           return resolve({
@@ -77,7 +77,6 @@ class RNIntentAnrdoid {
   static handleIntent(options){
     if (Platform.OS === 'android') {
       return new Promise((resolve, reject) => {
-        console.log(NativeModules.RNIntentAndroid)
         NativeModules.RNIntentAndroid.handleIntent(options, (e) => {
           return reject({ error: e});
         }, (e) => {
