@@ -12,7 +12,10 @@ import com.facebook.react.bridge.JavaScriptModule;
 public class RNSharePackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-      return Arrays.<NativeModule>asList(new RNShareModule(reactContext));
+      return Arrays.<NativeModule>asList(
+              new RNShareModule(reactContext),
+              new RNIntentModule(reactContext)
+      );
     }
 
     @Override

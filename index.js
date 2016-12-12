@@ -72,6 +72,24 @@ class RNShare {
     }
   }
 }
+
+class RNIntentAnrdoid {
+  static handleIntent(options){
+    if (Platform.OS === 'android') {
+      return new Promise((resolve, reject) => {
+        NativeModules.RNIntentAndroid.handleIntent(options, (e) => {
+          return reject({ error: e});
+        }, (e) => {
+          message: e
+        });
+      });
+    } else {
+      // Ignore
+    }
+
+  }
+}
+
 class ShareSheet extends React.Component {
   componentDidMount() {
     BackAndroid.addEventListener('hardwareBackPress',() => {
@@ -101,8 +119,8 @@ class ShareSheet extends React.Component {
   }
 }
 
-
 module.exports = RNShare;
+module.exports.IntentAndroid = RNIntentAnrdoid;
 module.exports.Overlay = Overlay;
 module.exports.Sheet = Sheet;
 module.exports.Button = Button;
