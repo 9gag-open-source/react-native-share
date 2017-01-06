@@ -40,9 +40,9 @@
 }
 
 - (void)prepareWithActivityItems:(NSArray *)activityItems {
-    for (id activityItems in activityItems) {
-        if ([activityItems isKindOfClass:[NSURL class]]) {
-            self.url = (NSURL *)activityItems;
+    for (id activityItem in activityItems) {
+        if ([activityItem isKindOfClass:[NSURL class]]) {
+            self.url = (NSURL *)activityItem;
         }
     }
 }
