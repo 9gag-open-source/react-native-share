@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* RNShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNShare.m */; };
+		BE53079C1E2F5B3F00D8D746 /* EmailShare.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5307951E2F5B3F00D8D746 /* EmailShare.m */; };
+		BE53079D1E2F5B3F00D8D746 /* GenericShare.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5307971E2F5B3F00D8D746 /* GenericShare.m */; };
+		BE53079E1E2F5B3F00D8D746 /* GooglePlusShare.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5307991E2F5B3F00D8D746 /* GooglePlusShare.m */; };
+		BE53079F1E2F5B3F00D8D746 /* WhatsAppShare.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53079B1E2F5B3F00D8D746 /* WhatsAppShare.m */; };
 		BE8C440B1DF93745006F7D0D /* libRNShareResources.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE8C44051DF93727006F7D0D /* libRNShareResources.bundle */; };
 		BE8C44101DF9377B006F7D0D /* activity-copy.png in Resources */ = {isa = PBXBuildFile; fileRef = BE8C440C1DF9377B006F7D0D /* activity-copy.png */; };
 		BE8C44111DF9377B006F7D0D /* activity-copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE8C440D1DF9377B006F7D0D /* activity-copy@2x.png */; };
@@ -34,6 +38,14 @@
 		134814201AA4EA6300B7C361 /* libRNShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNShare.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7B5881CC2AC0600A0062D /* RNShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNShare.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNShare.m; sourceTree = "<group>"; };
+		BE5307941E2F5B3F00D8D746 /* EmailShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailShare.h; sourceTree = "<group>"; };
+		BE5307951E2F5B3F00D8D746 /* EmailShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailShare.m; sourceTree = "<group>"; };
+		BE5307961E2F5B3F00D8D746 /* GenericShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericShare.h; sourceTree = "<group>"; };
+		BE5307971E2F5B3F00D8D746 /* GenericShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericShare.m; sourceTree = "<group>"; };
+		BE5307981E2F5B3F00D8D746 /* GooglePlusShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooglePlusShare.h; sourceTree = "<group>"; };
+		BE5307991E2F5B3F00D8D746 /* GooglePlusShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GooglePlusShare.m; sourceTree = "<group>"; };
+		BE53079A1E2F5B3F00D8D746 /* WhatsAppShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhatsAppShare.h; sourceTree = "<group>"; };
+		BE53079B1E2F5B3F00D8D746 /* WhatsAppShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhatsAppShare.m; sourceTree = "<group>"; };
 		BE8C43FD1DF936F6006F7D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE8C44051DF93727006F7D0D /* libRNShareResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libRNShareResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8C440C1DF9377B006F7D0D /* activity-copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "activity-copy.png"; sourceTree = "<group>"; };
@@ -76,12 +88,28 @@
 			isa = PBXGroup;
 			children = (
 				BEF10F051DF913F300C27317 /* Activity */,
+				BE5307931E2F5B3F00D8D746 /* Share */,
 				B3E7B5881CC2AC0600A0062D /* RNShare.h */,
 				B3E7B5891CC2AC0600A0062D /* RNShare.m */,
 				BE8C43FC1DF936F6006F7D0D /* libRNShareResources */,
 				134814211AA4EA7D00B7C361 /* Products */,
 				BE8C44051DF93727006F7D0D /* libRNShareResources.bundle */,
 			);
+			sourceTree = "<group>";
+		};
+		BE5307931E2F5B3F00D8D746 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				BE5307941E2F5B3F00D8D746 /* EmailShare.h */,
+				BE5307951E2F5B3F00D8D746 /* EmailShare.m */,
+				BE5307961E2F5B3F00D8D746 /* GenericShare.h */,
+				BE5307971E2F5B3F00D8D746 /* GenericShare.m */,
+				BE5307981E2F5B3F00D8D746 /* GooglePlusShare.h */,
+				BE5307991E2F5B3F00D8D746 /* GooglePlusShare.m */,
+				BE53079A1E2F5B3F00D8D746 /* WhatsAppShare.h */,
+				BE53079B1E2F5B3F00D8D746 /* WhatsAppShare.m */,
+			);
+			path = Share;
 			sourceTree = "<group>";
 		};
 		BE8C43FC1DF936F6006F7D0D /* libRNShareResources */ = {
@@ -200,8 +228,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE53079E1E2F5B3F00D8D746 /* GooglePlusShare.m in Sources */,
 				BEF10F0B1DF913F300C27317 /* NGSafariActivity.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNShare.m in Sources */,
+				BE53079D1E2F5B3F00D8D746 /* GenericShare.m in Sources */,
+				BE53079C1E2F5B3F00D8D746 /* EmailShare.m in Sources */,
+				BE53079F1E2F5B3F00D8D746 /* WhatsAppShare.m in Sources */,
 				BEF10F0A1DF913F300C27317 /* NGCopyLinkActivity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
