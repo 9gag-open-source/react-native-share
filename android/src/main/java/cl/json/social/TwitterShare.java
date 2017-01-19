@@ -20,7 +20,7 @@ public class TwitterShare extends SingleShareIntent {
     public void open(ReadableMap options) throws ActivityNotFoundException {
         super.open(options);
         //  extra params here
-        this.openIntentChooser();
+        this.attemptToOpenTargetActivityDirectly();
     }
     @Override
     protected String getPackage() {

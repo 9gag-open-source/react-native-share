@@ -126,6 +126,13 @@ public abstract class ShareIntent {
     public static boolean hasValidKey(String key, ReadableMap options) {
         return options.hasKey(key) && !options.isNull(key);
     }
+    protected void attemptToOpenTargetActivityDirectly() {
+        if (isPackageInstalled(getPackage(), reactContext)) {
+            this.reactContext.startActivity(getIntent());
+        } else {
+            this.openIntentChooser();
+        }
+    }
     protected abstract String getPackage();
     protected abstract String getDefaultWebLink();
     protected abstract String getPlayStoreLink();
