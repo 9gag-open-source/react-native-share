@@ -9,6 +9,7 @@
 #import "WhatsAppShare.h"
 #import "GooglePlusShare.h"
 #import "EmailShare.h"
+#import "SMSShare.h"
 
 #import "NGCopyLinkActivity.h"
 #import "NGSafariActivity.h"
@@ -16,8 +17,26 @@
 NSString * const NGCopyLinkActivityType = @"com.9gag.RNShare.activity.copylink";
 NSString * const NGOpenInSafariActivityType = @"com.9gag.RNShare.activity.openInSafari";
 
+#pragma mark Private
+
+static NSString *RCTKeyForInstance(id instance)
+{
+    return [NSString stringWithFormat:@"%p", instance];
+}
 
 @implementation RNShare
+{
+    NSMutableDictionary *_callbacks;
+}
+
+- (instancetype)init
+{
+    if ((self = [super init])) {
+        _callbacks = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
 - (dispatch_queue_t)methodQueue
 {
     return dispatch_get_main_queue();
@@ -48,21 +67,36 @@ RCT_EXPORT_METHOD(shareSingle:(NSDictionary *)options
     NSString *social = [RCTConvert NSString:options[@"social"]];
     if (social) {
         NSLog(social);
-        if([social isEqualToString:@"facebook"]) {
-            GenericShare *shareCtl = [[GenericShare alloc] init];
-            [shareCtl shareSingle:options failureCallback: failureCallback successCallback: successCallback serviceType: SLServiceTypeFacebook];
-        } else if([social isEqualToString:@"twitter"]) {
-            GenericShare *shareCtl = [[GenericShare alloc] init];
-            [shareCtl shareSingle:options failureCallback: failureCallback successCallback: successCallback serviceType: SLServiceTypeTwitter];
-        } else if([social isEqualToString:@"googleplus"]) {
-            GooglePlusShare *shareCtl = [[GooglePlusShare alloc] init];
-            [shareCtl shareSingle:options failureCallback: failureCallback successCallback: successCallback];
-        } else if([social isEqualToString:@"whatsapp"]) {
+        if([social isEqualToString:@"whatsapp"]) {
             WhatsAppShare *shareCtl = [[WhatsAppShare alloc] init];
-            [shareCtl shareSingle:options failureCallback: failureCallback successCallback: successCallback];
+            [shareCtl shareSingle:options failureCallback:failureCallback successCallback:successCallback];
+        } else if([social isEqualToString:@"facebook"]) {
+            GenericShare *shareCtl = [[GenericShare alloc] init];
+            [shareCtl shareSingle:options failureCallback:failureCallback successCallback:successCallback serviceType:SLServiceTypeFacebook];
+        } else if([social isEqualToString:@"sms"]) {
+            SMSShare *shareCtl = [[SMSShare alloc] init];
+            [shareCtl shareSingle:options
+               fromViewController:[[[[UIApplication sharedApplication] delegate] window] rootViewController]
+                 composerDelegate:self
+                  failureCallback:failureCallback];
+            if (successCallback){
+                _callbacks[RCTKeyForInstance(@"sms")] = successCallback;
+            }
         } else if([social isEqualToString:@"email"]) {
             EmailShare *shareCtl = [[EmailShare alloc] init];
-            [shareCtl shareSingle:options failureCallback: failureCallback successCallback: successCallback];
+            [shareCtl shareSingle:options
+               fromViewController:[[[[UIApplication sharedApplication] delegate] window] rootViewController]
+                 composerDelegate:self
+                  failureCallback:failureCallback];
+            if (successCallback){
+                _callbacks[RCTKeyForInstance(@"email")] = successCallback;
+            }
+        } else if([social isEqualToString:@"twitter"]) {
+            GenericShare *shareCtl = [[GenericShare alloc] init];
+            [shareCtl shareSingle:options failureCallback:failureCallback successCallback:successCallback serviceType:SLServiceTypeTwitter];
+        } else if([social isEqualToString:@"googleplus"]) {
+            GooglePlusShare *shareCtl = [[GooglePlusShare alloc] init];
+            [shareCtl shareSingle:options failureCallback:failureCallback successCallback:successCallback];
         }
     } else {
         RCTLogError(@"No exists social key");
@@ -181,6 +215,63 @@ RCT_EXPORT_METHOD(open:(NSDictionary *)options
     [controller presentViewController:shareController animated:YES completion:nil];
     
     shareController.view.tintColor = [RCTConvert UIColor:options[@"tintColor"]];
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    
+    NSString *key = @"email";
+    
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            break;
+        case MFMailComposeResultSaved:
+            break;
+        case MFMailComposeResultSent:
+        {
+            RCTResponseSenderBlock callback = _callbacks[RCTKeyForInstance(key)];
+            if (callback) {
+                callback(@[key]);
+                [_callbacks removeObjectForKey:key];
+            }
+        }
+            break;
+        case MFMailComposeResultFailed:
+            break;
+        default:
+            break;
+    }
+    
+    UIViewController *ctrl = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    [ctrl dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - MFMessageComposeViewControllerDelegate
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+    
+    NSString *key = @"sms";
+    
+    switch (result) {
+        case MessageComposeResultCancelled:
+            break;
+        case MessageComposeResultFailed:
+            break;
+        case MessageComposeResultSent:
+        {
+            RCTResponseSenderBlock callback = _callbacks[RCTKeyForInstance(key)];
+            if (callback) {
+                callback(@[key]);
+                [_callbacks removeObjectForKey:key];
+            }
+        }
+            break;
+        default:
+            break;
+    }
+    UIViewController *ctrl = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    [ctrl dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

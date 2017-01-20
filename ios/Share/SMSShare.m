@@ -1,14 +1,15 @@
 //
-//  EmailShare.m
+//  SMSShare.m
 //  RNShare
 //
-//  Created by Diseño Uno BBCL on 23-07-16.
-//  Copyright © 2016 Facebook. All rights reserved.
+//  Created by Lung on 20/1/2017.
+//  Copyright © 2017 Facebook. All rights reserved.
 //
 
-#import "EmailShare.h"
+#import "SMSShare.h"
 
-@implementation EmailShare
+@implementation SMSShare
+
 - (void)shareSingle:(NSDictionary *)options
  fromViewController:(nonnull UIViewController *)fromViewController
    composerDelegate:(nonnull id<NSObject>)composerDelegate
@@ -28,33 +29,22 @@
             message = [message stringByAppendingString: [@" " stringByAppendingString: options[@"url"]] ];
         }
         
-        if ([MFMailComposeViewController canSendMail]){
-            MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-            mc.mailComposeDelegate = composerDelegate;
-            [mc setSubject:subject];
-            [mc setMessageBody:message isHTML:NO];
-            
-            [fromViewController presentViewController:mc animated:YES completion:Nil];
+        MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+        if([MFMessageComposeViewController canSendText])
+        {
+            controller.subject = subject;
+            controller.body = message;
+            controller.messageComposeDelegate = composerDelegate;
+            [fromViewController presentViewController:controller animated:YES completion:nil];
             
         } else {
-            NSString *errorMessage = @"Email is not configured";
+            NSString *errorMessage = @"SMS is not configured";
             NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: NSLocalizedString(errorMessage, nil)};
             NSError *error = [NSError errorWithDomain:@"com.rnshare" code:1 userInfo:userInfo];
             
             NSLog(errorMessage);
             failureCallback(error);
         }
-        
-//        NSString * urlWhats = [NSString stringWithFormat:@"mailto:?subject=%@&body=%@", subject, message ];
-//        NSURL * whatsappURL = [NSURL URLWithString:[urlWhats stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-//
-//        if ([[UIApplication sharedApplication] canOpenURL: whatsappURL]) {
-//            [[UIApplication sharedApplication] openURL: whatsappURL];
-//            successCallback(@[]);
-//        } else {
-//            // Cannot open email
-//            NSLog(@"Cannot open email");
-//        }
     }
 }
 
