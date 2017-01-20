@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* RNShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNShare.m */; };
+		BE248BA01E31C93100C0B10E /* NSString+Encoded.m in Sources */ = {isa = PBXBuildFile; fileRef = BE248B9E1E31C92C00C0B10E /* NSString+Encoded.m */; };
+		BE248BD91E31FFDC00C0B10E /* SMSShare.m in Sources */ = {isa = PBXBuildFile; fileRef = BE248BD81E31FFDC00C0B10E /* SMSShare.m */; };
 		BE53079C1E2F5B3F00D8D746 /* EmailShare.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5307951E2F5B3F00D8D746 /* EmailShare.m */; };
 		BE53079D1E2F5B3F00D8D746 /* GenericShare.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5307971E2F5B3F00D8D746 /* GenericShare.m */; };
 		BE53079E1E2F5B3F00D8D746 /* GooglePlusShare.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5307991E2F5B3F00D8D746 /* GooglePlusShare.m */; };
@@ -38,6 +40,10 @@
 		134814201AA4EA6300B7C361 /* libRNShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNShare.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7B5881CC2AC0600A0062D /* RNShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNShare.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNShare.m; sourceTree = "<group>"; };
+		BE248B9D1E31C92C00C0B10E /* NSString+Encoded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Encoded.h"; sourceTree = "<group>"; };
+		BE248B9E1E31C92C00C0B10E /* NSString+Encoded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encoded.m"; sourceTree = "<group>"; };
+		BE248BD71E31FFDC00C0B10E /* SMSShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSShare.h; sourceTree = "<group>"; };
+		BE248BD81E31FFDC00C0B10E /* SMSShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSShare.m; sourceTree = "<group>"; };
 		BE5307941E2F5B3F00D8D746 /* EmailShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailShare.h; sourceTree = "<group>"; };
 		BE5307951E2F5B3F00D8D746 /* EmailShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailShare.m; sourceTree = "<group>"; };
 		BE5307961E2F5B3F00D8D746 /* GenericShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericShare.h; sourceTree = "<group>"; };
@@ -88,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				BEF10F051DF913F300C27317 /* Activity */,
+				BE248B9C1E31C92400C0B10E /* Categories */,
 				BE5307931E2F5B3F00D8D746 /* Share */,
 				B3E7B5881CC2AC0600A0062D /* RNShare.h */,
 				B3E7B5891CC2AC0600A0062D /* RNShare.m */,
@@ -95,6 +102,15 @@
 				134814211AA4EA7D00B7C361 /* Products */,
 				BE8C44051DF93727006F7D0D /* libRNShareResources.bundle */,
 			);
+			sourceTree = "<group>";
+		};
+		BE248B9C1E31C92400C0B10E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BE248B9D1E31C92C00C0B10E /* NSString+Encoded.h */,
+				BE248B9E1E31C92C00C0B10E /* NSString+Encoded.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		BE5307931E2F5B3F00D8D746 /* Share */ = {
@@ -108,6 +124,8 @@
 				BE5307991E2F5B3F00D8D746 /* GooglePlusShare.m */,
 				BE53079A1E2F5B3F00D8D746 /* WhatsAppShare.h */,
 				BE53079B1E2F5B3F00D8D746 /* WhatsAppShare.m */,
+				BE248BD71E31FFDC00C0B10E /* SMSShare.h */,
+				BE248BD81E31FFDC00C0B10E /* SMSShare.m */,
 			);
 			path = Share;
 			sourceTree = "<group>";
@@ -230,8 +248,10 @@
 			files = (
 				BE53079E1E2F5B3F00D8D746 /* GooglePlusShare.m in Sources */,
 				BEF10F0B1DF913F300C27317 /* NGSafariActivity.m in Sources */,
+				BE248BA01E31C93100C0B10E /* NSString+Encoded.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNShare.m in Sources */,
 				BE53079D1E2F5B3F00D8D746 /* GenericShare.m in Sources */,
+				BE248BD91E31FFDC00C0B10E /* SMSShare.m in Sources */,
 				BE53079C1E2F5B3F00D8D746 /* EmailShare.m in Sources */,
 				BE53079F1E2F5B3F00D8D746 /* WhatsAppShare.m in Sources */,
 				BEF10F0A1DF913F300C27317 /* NGCopyLinkActivity.m in Sources */,

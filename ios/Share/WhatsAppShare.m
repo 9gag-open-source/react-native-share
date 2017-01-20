@@ -7,8 +7,10 @@
 //
 
 #import "WhatsAppShare.h"
+#import "NSString+Encoded.h"
 
 @implementation WhatsAppShare
+
 - (void)shareSingle:(NSDictionary *)options
     failureCallback:(RCTResponseErrorBlock)failureCallback
     successCallback:(RCTResponseSenderBlock)successCallback {
@@ -17,8 +19,9 @@
 
     if ([options objectForKey:@"message"] && [options objectForKey:@"message"] != [NSNull null]) {
         NSString *text = [RCTConvert NSString:options[@"message"]];
-        NSString * urlWhats = [NSString stringWithFormat:@"whatsapp://send?text=%@", [text stringByAppendingString: [@" " stringByAppendingString: options[@"url"]] ]];
-        NSURL * whatsappURL = [NSURL URLWithString:[urlWhats stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        NSString *fullText = [[text stringByAppendingString:@" "] stringByAppendingString:options[@"url"]];
+        NSString *encodedText = [fullText urlencode];
+        NSURL *whatsappURL = [NSURL URLWithString:[NSString stringWithFormat:@"whatsapp://send?text=%@", encodedText]];
 
         if ([[UIApplication sharedApplication] canOpenURL: whatsappURL]) {
             [[UIApplication sharedApplication] openURL: whatsappURL];
