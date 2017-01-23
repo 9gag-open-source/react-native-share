@@ -13,6 +13,7 @@ import com.facebook.react.bridge.Callback;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
+import android.support.v4.util.ArrayMap;
 
 import cl.json.social.EmailShare;
 import cl.json.social.FacebookShare;
@@ -21,11 +22,12 @@ import cl.json.social.GooglePlusShare;
 import cl.json.social.ShareIntent;
 import cl.json.social.TwitterShare;
 import cl.json.social.WhatsAppShare;
+import cl.json.social.SmsShare;
 
 public class RNShareModule extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
-    private HashMap<String, ShareIntent> sharesExtra = new HashMap<String, ShareIntent>();
+    private final ArrayMap<String, ShareIntent> sharesExtra = new ArrayMap<String, ShareIntent>();
     public RNShareModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
@@ -35,6 +37,7 @@ public class RNShareModule extends ReactContextBaseJavaModule {
         sharesExtra.put("whatsapp",new WhatsAppShare(this.reactContext));
         sharesExtra.put("googleplus",new GooglePlusShare(this.reactContext));
         sharesExtra.put("email",new EmailShare(this.reactContext));
+        sharesExtra.put("sms",new SmsShare(this.reactContext));
         //  add more customs single intent shares here
     }
 
