@@ -32,6 +32,9 @@ public abstract class ShareIntent {
         this.getIntent().setType("text/plain");
     }
     public void open(ReadableMap options) throws ActivityNotFoundException {
+        extractIntent(options);
+    }
+    protected void extractIntent(ReadableMap options) {
         if (ShareIntent.hasValidKey("subject", options) ) {
             this.getIntent().putExtra(Intent.EXTRA_SUBJECT, options.getString("subject"));
         }
