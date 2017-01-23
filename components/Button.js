@@ -25,8 +25,7 @@ const styles = StyleSheet.create({
       width: 28,
       height: 28,
       marginLeft: 10,
-      marginRight: 30,
-      resizeMode: 'contain'
+      marginRight: 30
     }
 });
 
@@ -37,7 +36,7 @@ export default class Button extends React.Component {
             activeOpacity={0.5}
             style={[styles.button, this.props.buttonStyle]}
             onPress={this.props.onPress}>
-            <Image style={styles.icon} source={this.props.iconSrc} />
+            <Image style={[styles.icon, this.props.iconStyle]} source={this.props.iconSrc} />
             <Text style={[styles.buttonText, this.props.textStyle]}>
                 {this.props.children}
             </Text>
