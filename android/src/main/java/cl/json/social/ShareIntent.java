@@ -131,7 +131,12 @@ public abstract class ShareIntent {
     }
     protected void attemptToOpenTargetActivityDirectly() {
         if (isPackageInstalled(getPackage(), reactContext)) {
-            this.reactContext.startActivity(getIntent());
+            if (this.reactContext.getCurrentActivity() != null) {
+                this.reactContext.getCurrentActivity().startActivity(getIntent());
+            } else {
+                getIntent().setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                this.reactContext.startActivity(getIntent());
+            }
         } else {
             this.openIntentChooser();
         }
