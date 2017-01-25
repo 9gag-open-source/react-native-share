@@ -28,7 +28,13 @@ public class SmsShare extends SingleShareIntent {
 
             if (ShareIntent.hasValidKey("message", options) && ShareIntent.hasValidKey("url", options)) {
                 this.getIntent().putExtra("sms_body", options.getString("message") + " " + options.getString("url"));
-                this.reactContext.startActivity(this.getIntent());
+                if (this.reactContext.getCurrentActivity() != null) {
+                    this.reactContext.getCurrentActivity().startActivity(this.getIntent());
+                } else {
+                    this.getIntent().setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    this.reactContext.startActivity(this.getIntent());
+                }
+
             }
 
         } catch (Exception exception) {
