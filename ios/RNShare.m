@@ -1,16 +1,25 @@
 //#import <MessageUI/MessageUI.h>
 #import "RNShare.h"
+
+#if __has_include(<React/RCTConvert.h>)
+#import <React/RCTConvert.h>
+#import <React/RCTBridge.h>
+#import <React/RCTUIManager.h>
+#import <React/RCTLog.h>
+#import <React/RCTUtils.h>
+#else
 #import "RCTConvert.h"
-#import "RCTLog.h"
-#import "RCTUtils.h"
 #import "RCTBridge.h"
 #import "RCTUIManager.h"
+#import "RCTLog.h"
+#import "RCTUtils.h"
+#endif
+
 #import "GenericShare.h"
 #import "WhatsAppShare.h"
 #import "GooglePlusShare.h"
 #import "EmailShare.h"
 #import "SMSShare.h"
-
 #import "NGCopyLinkActivity.h"
 #import "NGSafariActivity.h"
 
